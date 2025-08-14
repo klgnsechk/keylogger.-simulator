@@ -1,4 +1,5 @@
-
+# istemci tarafı başlatmak için Python3 client.py
+# çıkmak için ise q harfini kullanın. 
 import sys
 import requests
 import tty
