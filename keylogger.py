@@ -1,3 +1,4 @@
+# sunucu tarafı, indirdikten sonra başlatmak için python3 keylogger.py
 from flask import Flask, request
 import datetime
 
