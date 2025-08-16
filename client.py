@@ -29,5 +29,6 @@ while True:
     try:
         response = requests.post(SERVER_URL, json={'key': key})
         print(f"Gönderildi: {key}")
-    except Exception as e:        
+    except Exception as e:
         print(f"Hata: {e}")
+        
